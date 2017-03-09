@@ -13,12 +13,41 @@ cnx = mysql.connector.connect(**config)
 cursor = cnx.cursor()
 
 
-# Add tables
+#####
+# Each use case is in it's own comment block, seperated by their titles.
+# Copy the relevant block to your file and uncomment to use.
+# The examples assume a table 'Users' with columns 'id', 'age', 'first', 'last'.
+#####
 
+
+# Create database
 """
-DB_NAME = 'Test_schema'
+DB_NAME = 'test_schema'
+
+def create_database(cursor):
+    try:
+        cursor.execute(
+            "CREATE DATABASE {%s} DEFAULT CHARACTER SET 'utf8'".format(DB_NAME))
+    except mysql.connector.Error as err:
+        print("Failed creating database: {%s}".format(err))
+        exit(1)
+
+try:
+    cnx.database = DB_NAME
+except mysql.connector.Error as err:
+    if err.errno == errorcode.ER_BAD_DB_ERROR:
+        create_database(cursor)
+        cnx.database = DB_NAME
+    else:
+        print(err)
+        exit(1)
+"""
+
+
+# Add tables
+"""
 TABLES = {}
-TABLES['Test_schema'] = (
+TABLES['treningsøkt'] = (
     "CREATE TABLE `treningsøkt` ("
     "  `øktId` int(11) NOT NULL AUTO_INCREMENT,"
     "  `varighet` int(10) NOT NULL,"
@@ -42,7 +71,6 @@ for name, ddl in TABLES.items():
 
 
 # Insert data
-
 """
 add_user = ("INSERT INTO Users "
                "(id, age, first, last) "
@@ -55,7 +83,7 @@ cursor.execute(add_user, sim1haha)
 
 
 # Select data
-
+"""
 query = ("SELECT * FROM Users")
 
 cursor.execute(query)
@@ -64,7 +92,8 @@ for (id, age, first, last) in cursor:
   print("{:s} {:s} is {:d} years old and has id {:d}.".format(
     first, last, age, id))
 
-cnx.commit()
+"""
 
+cnx.commit()
 cursor.close()
 cnx.close()
