@@ -11,17 +11,14 @@ config = {
 cnx = mysql.connector.connect(**config)
 cursor = cnx.cursor()
 
+add_user = ("INSERT INTO bruker "
+            "(brukernavn,kjønn,alder) "
+            "VALUES (%s, %s, %s)")
+
+simen = ("Simen Haga","mann","22")
 
 
-query = ("SELECT * FROM bruker")
-
-cursor.execute(query)
-
-for (brukernavn,kjønn,alder) in cursor:
-  print("{:s} er {:d} år og {:s}.".format(
-    brukernavn,alder,kjønn))
-
-
+cursor.execute(add_user, simen)
 
 
 cnx.commit()
