@@ -1,6 +1,9 @@
 import mysql.connector
 from mysql.connector import errorcode
 
+
+"""Hei finn!"""
+
 config = {
   'user': 'root',
   'password': 'password',
