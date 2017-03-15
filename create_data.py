@@ -25,7 +25,7 @@ add_har_trent = (
 
 add_treningsøkt = (
     "INSERT INTO treningsøkt "
-    "(øktid,brukerid,tidspunkt,idrett)"
+    "(øktid,tidspunkt,idrett)"
     "VALUES (%s, %s, %s, %s)"
 )
 
@@ -44,7 +44,7 @@ add_øvelse = (
 
 
 simen = ("Simen Haga","mann","22")
-økt = ("1","1","2017-03-15","vektløfting")
+økt = ("1","2017-03-15","vektløfting")
 simen_har_trent_økt = (simen[0],økt[0],økt[2],"22:00:00","meh","meh")
 øvelse = ("Markløft","Standard markløft",None,None,None)
 simen_har_utført = ("10","3","120",None,"gikk bra",økt[0],øvelse[0])

@@ -45,7 +45,6 @@ TABLES['har_trent'] = (
 TABLES['treningsøkt'] = (
 "	CREATE TABLE `treningsøkt`("
 "	  `øktid`              int(10) NOT NULL,"
-"	  `brukerid`           int(10) NOT NULL,"
 "	  `tidspunkt`          date,"
 "	  `idrett`             varchar(20),"
 "	CONSTRAINT `treningsøkt_PK` PRIMARY KEY (`øktid`)"
