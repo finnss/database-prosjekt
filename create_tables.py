@@ -1,7 +1,6 @@
 import mysql.connector
 from mysql.connector import errorcode
 
-
 ###
 # First fill tables into one dict entry each, with the key being the table name and value being the SQL.
 ###
