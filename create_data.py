@@ -29,17 +29,6 @@ add_treningsøkt = (
     "VALUES (%s, %s, %s, %s)"
 )
 
-add_innendørsøkt = (
-    "INSERT INTO innendørsøkt "
-    "(øktid,ventilasjon,antall_tilskuere) "
-    "VALUES (%s, %s, %s)"
-)
-
-add_utendørsøkt = (
-    "INSERT INTO utendørsøkt "
-    "(øktid,Temperatur,værtype) "
-    "VALUES (%s, %s, %s)"
-)
 
 add_utført = (
     "INSERT INTO utført"
@@ -53,21 +42,20 @@ add_øvelse = (
     "VALUES (%s,%s,%s,%s,%s)"
 )
 
-add_mål = (
-    "INSERT INTO utført"
-    "(målid,tidsfrist,repetisjoner,sett,vekt,lengde,kommentar,brukernavn,øvelse_navn)"
-    "VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-)
 
 simen = ("Simen Haga","mann","22")
 økt = ("1","1","2017-03-15","vektløfting")
 simen_har_trent_økt = (simen[0],økt[0],økt[2],"22:00:00","meh","meh")
+øvelse = ("Markløft","Standard markløft",None,None,None)
+simen_har_utført = ("10","3","120",None,"gikk bra",økt[0],øvelse[0])
 
 
 
 cursor.execute(add_user, simen)
 cursor.execute(add_treningsøkt,økt)
 cursor.execute(add_har_trent,simen_har_trent_økt)
+cursor.execute(add_øvelse,øvelse)
+cursor.execute(add_utført,simen_har_utført)
 
 
 cnx.commit()
