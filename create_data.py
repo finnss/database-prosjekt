@@ -24,10 +24,14 @@ add_treningsøkt = ("INSERT INTO treningsøkt "
             "VALUES (%s, %s, %s, %s)")
 
 simen = ("Simen Haga","mann","22")
-økt = ("1",simen[0],"2017-03-15","vektløfting")
+økt = ("1","1","2017-03-15","vektløfting")
+simen_har_trent_økt = (simen[0],økt[0],økt[2],"22:00:00","meh","meh")
+
 
 
 cursor.execute(add_user, simen)
+cursor.execute(add_treningsøkt,økt)
+cursor.execute(add_har_trent,simen_har_trent_økt)
 
 
 cnx.commit()

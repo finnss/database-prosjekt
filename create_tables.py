@@ -226,6 +226,7 @@ for name, ddl in TABLES.items():
     else:
         print("OK")
 
+
 cnx.commit()
 cursor.close()
 cnx.close()
