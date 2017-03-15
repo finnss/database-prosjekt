@@ -29,7 +29,7 @@ TABLES['bruker'] = (
 TABLES['treningsøkt'] = (
 "	CREATE TABLE `treningsøkt`("
 "	  `øktid`              int(10) NOT NULL,"
-"	  `tidspunkt`          date,"
+"	  `varighet`           TIME,"
 "	  `idrett`             varchar(20),"
 "	CONSTRAINT `treningsøkt_PK` PRIMARY KEY (`øktid`)"
 "	) ENGINE=InnoDB")
