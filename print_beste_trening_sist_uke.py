@@ -13,19 +13,51 @@ cursor = cnx.cursor()
 
 
 
-query = (
-" SELECT b.brukernavn, b.kjønn, b.alder FROM bruker b,har_trent h, treningsøkt t,"
-" innendørsøkt inn, utendørsøkt ut, utført u,øvelse ø,mål m"
+dateQueryStyrke = (
+" SELECT h.dato, h.tidspunkt FROM bruker b,har_trent h, treningsøkt t,"
+" utført u,øvelse ø"
 " WHERE b.brukernavn = h.brukernavn"
-" AND h.øktid = t.øktid")
+" AND h.øktid = t.øktid"
+" AND u.øktid = t.øktid"
+" AND u.øvelse_navn = ø.øvelse_navn"
+)
+
+dateQueryKondis = (
+" SELECT h.dato, h.tidspunkt FROM bruker b,har_trent h, treningsøkt t,"
+" utført u,øvelse ø"
+" WHERE b.brukernavn = h.brukernavn"
+" AND h.øktid = t.øktid"
+" AND u.øktid = t.øktid"
+" AND u.øvelse_navn = ø.øvelse_navn"
+""
+)
 
 
+bestStyrkeQuery = (
+" SELECT b.brukernavn, b.kjønn, b.alder FROM bruker b,har_trent h, treningsøkt t,"
+" utført u,øvelse ø"
+" WHERE b.brukernavn = h.brukernavn"
+" AND h.øktid = t.øktid"
+" AND u.øktid = t.øktid"
+" AND u.øvelse_navn = ø.øvelse_navn"
+)
 
-cursor.execute(query)
 
-for (brukernavn,kjønn,alder) in cursor:
-  print("{:s} er {:d} år og {:s}.".format(
-    brukernavn,alder,kjønn))
+bestKondisQuery = (
+" SELECT b.brukernavn, b.kjønn, b.alder FROM bruker b,har_trent h, treningsøkt t,"
+" utført u,øvelse ø"
+" WHERE b.brukernavn = h.brukernavn"
+" AND h.øktid = t.øktid"
+" AND u.øktid = t.øktid"
+" AND u.øvelse_navn = ø.øvelse_navn"
+)
+
+
+cursor.execute(dateQueryStyrke)
+
+for (dato,tidspunkt) in cursor:
+  print("Beste styrketrening var på den {:s} klokken {:s}.".format(
+    dato,tidspunkt))
 
 
 cnx.commit()
