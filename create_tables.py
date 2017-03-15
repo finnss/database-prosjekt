@@ -131,6 +131,8 @@ TABLES['mål'] = (
 "	  `vekt`         int(10),"
 "	  `lengde`       varchar(10),"
 "	  `kommentar`    varchar(200),"
+"     `brukernavn`   varchar(20),"
+"     `øvelse_navn`  varchar(20),"
 "	  CONSTRAINT `mål_PK` PRIMARY KEY (`målid`),"
 "	  CONSTRAINT `bruker_FK` FOREIGN KEY(`brukernavn`) REFERENCES `bruker`(`brukernavn`)"
 "	                                                      ON UPDATE CASCADE"
@@ -223,6 +225,7 @@ for name, ddl in TABLES.items():
             print(err.msg)
     else:
         print("OK")
+
 
 cnx.commit()
 cursor.close()
