@@ -11,6 +11,7 @@ config = {
 cnx = mysql.connector.connect(**config)
 cursor = cnx.cursor()
 
+
 add_user = (
     " INSERT INTO bruker "
     " (brukernavn,kjønn,alder) "
