@@ -131,6 +131,8 @@ TABLES['mål'] = (
 "	  `vekt`         int(10),"
 "	  `lengde`       varchar(10),"
 "	  `kommentar`    varchar(200),"
+"	  `brukernavn`   varchar(200),"
+"	  `øvelse_navn`  varchar(200),"
 "	  CONSTRAINT `mål_PK` PRIMARY KEY (`målid`),"
 "	  CONSTRAINT `bruker_FK` FOREIGN KEY(`brukernavn`) REFERENCES `bruker`(`brukernavn`)"
 "	                                                      ON UPDATE CASCADE"
