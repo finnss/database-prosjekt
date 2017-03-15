@@ -13,15 +13,19 @@ cursor = cnx.cursor()
 
 
 
-query = ("SELECT * FROM bruker")
+query = (
+" SELECT b.brukernavn, b.kjønn, b.alder FROM bruker b,har_trent h, treningsøkt t,"
+" innendørsøkt inn, utendørsøkt ut, utført u,øvelse ø,mål m"
+" WHERE b.brukernavn = h.brukernavn"
+" AND h.øktid = t.øktid")
+
+
 
 cursor.execute(query)
 
 for (brukernavn,kjønn,alder) in cursor:
   print("{:s} er {:d} år og {:s}.".format(
     brukernavn,alder,kjønn))
-
-
 
 
 cnx.commit()

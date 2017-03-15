@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1ddfdcb-84bc-4647-8d53-ac475eff32cc" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create_data.py" afterPath="$PROJECT_DIR$/create_data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create_tables.py" afterPath="$PROJECT_DIR$/create_tables.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print_beste_trening_sist_uke.py" afterPath="$PROJECT_DIR$/print_beste_trening_sist_uke.py" />
     </list>
     <ignored path="database-prosjekt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -17,9 +18,9 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/database-prosjekt$print_beste_trening_sist_uke.coverage" NAME="print_beste_trening_sist_uke Coverage Results" MODIFIED="1489508610386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/database-prosjekt$create_data.coverage" NAME="create_data Coverage Results" MODIFIED="1489570138076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/database-prosjekt$create_tables.coverage" NAME="create_tables Coverage Results" MODIFIED="1489570135674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/database-prosjekt$print_beste_trening_sist_uke.coverage" NAME="print_beste_trening_sist_uke Coverage Results" MODIFIED="1489575400096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/database-prosjekt$create_data.coverage" NAME="create_data Coverage Results" MODIFIED="1489574680835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/database-prosjekt$create_tables.coverage" NAME="create_tables Coverage Results" MODIFIED="1489573856067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -47,14 +48,19 @@
           <file leaf-file-name="create_data.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/create_data.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="659">
-                  <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+                <state relative-caret-position="263">
+                  <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
                   <folding>
-                    <marker date="1489570123822" expanded="true" signature="239:332" ph="INSERT INTO bruker... " />
-                    <marker date="1489570123822" expanded="true" signature="354:375" ph="INSERT INTO har_trent... " />
-                    <marker date="1489570123822" expanded="true" signature="354:454" ph="INSERT INTO har_trent... " />
-                    <marker date="1489570123822" expanded="true" signature="354:500" ph="INSERT INTO har_trent... " />
-                    <marker date="1489570123822" expanded="true" signature="524:634" ph="INSERT INTO treningsøkt... " />
+                    <marker date="1489576120502" expanded="true" signature="245:324" ph="INSERT INTO bruker... " />
+                    <marker date="1489576120502" expanded="true" signature="352:373" ph="INSERT INTO har_trent... " />
+                    <marker date="1489576120502" expanded="true" signature="352:439" ph="INSERT INTO har_trent... " />
+                    <marker date="1489576120502" expanded="true" signature="352:472" ph="INSERT INTO har_trent... " />
+                    <marker date="1489576120502" expanded="true" signature="502:596" ph="INSERT INTO treningsøkt... " />
+                    <marker date="1489576120502" expanded="true" signature="627:722" ph="INSERT INTO innendørsøkt... " />
+                    <marker date="1489576120502" expanded="true" signature="752:836" ph="INSERT INTO utendørsøkt... " />
+                    <marker date="1489576120502" expanded="true" signature="861:981" ph="INSERT INTO utført... " />
+                    <marker date="1489576120502" expanded="true" signature="1006:1121" ph="INSERT INTO øvelse... " />
+                    <marker date="1489576120502" expanded="true" signature="1143:1287" ph="INSERT INTO utført... " />
                   </folding>
                 </state>
               </provider>
@@ -63,11 +69,14 @@
           <file leaf-file-name="print_beste_trening_sist_uke.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/print_beste_trening_sist_uke.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="640">
-                  <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+                <state relative-caret-position="528">
+                  <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
                   <folding>
-                    <marker date="1489508346837" expanded="true" signature="238:252" ph="SELECT * FRO... Users" />
-                    <marker date="1489508346837" expanded="true" signature="238:258" ph="SELECT * FRO... bruker" />
+                    <marker date="1489575410746" expanded="true" signature="240:301" ph="SELECT * FRO... bruker" />
+                    <marker date="1489575410746" expanded="true" signature="240:303" ph="SELECT b.bru... bruker" />
+                    <marker date="1489575410746" expanded="true" signature="240:319" ph="SELECT b.bru... bruker" />
+                    <marker date="1489575410746" expanded="true" signature="240:417" ph="SELECT * FRO... bruker" />
+                    <marker date="1489575410746" expanded="true" signature="240:442" ph="SELECT b.bru... bruker" />
                   </folding>
                 </state>
               </provider>
@@ -81,7 +90,9 @@
                   <folding>
                     <element signature="e#0#22#0" expanded="true" />
                     <marker date="1489568835714" expanded="true" signature="414:614" ph="CREATE TABLE... bruker" />
+                    <marker date="1489568835714" expanded="true" signature="644:1398" ph="CREATE TABLE... har_trent" />
                     <marker date="1489568835714" expanded="true" signature="1430:1688" ph="CREATE TABLE... treningsøkt" />
+                    <marker date="1489568835714" expanded="true" signature="1721:2128" ph="CREATE TABLE... innendørsøkt" />
                     <marker date="1489568835714" expanded="true" signature="2160:2569" ph="CREATE TABLE... utendørsøkt" />
                     <marker date="1489568835714" expanded="true" signature="2598:3154" ph="CREATE TABLE... målinger" />
                     <marker date="1489568835714" expanded="true" signature="3178:3594" ph="CREATE TABLE... mal" />
@@ -107,8 +118,8 @@
           <file leaf-file-name="create_tables.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/create_tables.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="565">
-                  <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+                <state relative-caret-position="-3234">
+                  <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
                   <folding>
                     <element signature="e#0#22#0" expanded="true" />
                     <marker date="1489568835714" expanded="true" signature="414:614" ph="CREATE TABLE... bruker" />
@@ -151,8 +162,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/example_code.py" />
-        <option value="$PROJECT_DIR$/print_beste_trening_sist_uke.py" />
         <option value="$PROJECT_DIR$/create_tables.py" />
+        <option value="$PROJECT_DIR$/print_beste_trening_sist_uke.py" />
         <option value="$PROJECT_DIR$/create_data.py" />
       </list>
     </option>
@@ -221,7 +232,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="D:\Node\node.exe" />
   </component>
-  <component name="RunManager" selected="Python.create_data">
+  <component name="RunManager" selected="Python.print_beste_trening_sist_uke">
     <configuration default="false" name="create_tables" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -491,9 +502,9 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.create_data" />
-        <item index="1" class="java.lang.String" itemvalue="Python.create_tables" />
-        <item index="2" class="java.lang.String" itemvalue="Python.print_beste_trening_sist_uke" />
+        <item index="0" class="java.lang.String" itemvalue="Python.print_beste_trening_sist_uke" />
+        <item index="1" class="java.lang.String" itemvalue="Python.create_data" />
+        <item index="2" class="java.lang.String" itemvalue="Python.create_tables" />
       </list>
     </recent_temporary>
   </component>
@@ -572,7 +583,9 @@
           <folding>
             <element signature="e#0#22#0" expanded="true" />
             <marker date="1489568835714" expanded="true" signature="414:614" ph="CREATE TABLE... bruker" />
+            <marker date="1489568835714" expanded="true" signature="644:1398" ph="CREATE TABLE... har_trent" />
             <marker date="1489568835714" expanded="true" signature="1430:1688" ph="CREATE TABLE... treningsøkt" />
+            <marker date="1489568835714" expanded="true" signature="1721:2128" ph="CREATE TABLE... innendørsøkt" />
             <marker date="1489568835714" expanded="true" signature="2160:2569" ph="CREATE TABLE... utendørsøkt" />
             <marker date="1489568835714" expanded="true" signature="2598:3154" ph="CREATE TABLE... målinger" />
             <marker date="1489568835714" expanded="true" signature="3178:3594" ph="CREATE TABLE... mal" />
@@ -607,7 +620,9 @@
           <folding>
             <element signature="e#0#22#0" expanded="true" />
             <marker date="1489568835714" expanded="true" signature="414:614" ph="CREATE TABLE... bruker" />
+            <marker date="1489568835714" expanded="true" signature="644:1398" ph="CREATE TABLE... har_trent" />
             <marker date="1489568835714" expanded="true" signature="1430:1688" ph="CREATE TABLE... treningsøkt" />
+            <marker date="1489568835714" expanded="true" signature="1721:2128" ph="CREATE TABLE... innendørsøkt" />
             <marker date="1489568835714" expanded="true" signature="2160:2569" ph="CREATE TABLE... utendørsøkt" />
             <marker date="1489568835714" expanded="true" signature="2598:3154" ph="CREATE TABLE... målinger" />
             <marker date="1489568835714" expanded="true" signature="3178:3594" ph="CREATE TABLE... mal" />
@@ -631,17 +646,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/print_beste_trening_sist_uke.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding>
-            <marker date="1489508346837" expanded="true" signature="238:252" ph="SELECT * FRO... Users" />
-            <marker date="1489508346837" expanded="true" signature="238:258" ph="SELECT * FRO... bruker" />
           </folding>
         </state>
       </provider>
@@ -671,7 +675,9 @@
           <folding>
             <element signature="e#0#22#0" expanded="true" />
             <marker date="1489568835714" expanded="true" signature="414:614" ph="CREATE TABLE... bruker" />
+            <marker date="1489568835714" expanded="true" signature="644:1398" ph="CREATE TABLE... har_trent" />
             <marker date="1489568835714" expanded="true" signature="1430:1688" ph="CREATE TABLE... treningsøkt" />
+            <marker date="1489568835714" expanded="true" signature="1721:2128" ph="CREATE TABLE... innendørsøkt" />
             <marker date="1489568835714" expanded="true" signature="2160:2569" ph="CREATE TABLE... utendørsøkt" />
             <marker date="1489568835714" expanded="true" signature="2598:3154" ph="CREATE TABLE... målinger" />
             <marker date="1489568835714" expanded="true" signature="3178:3594" ph="CREATE TABLE... mal" />
@@ -689,16 +695,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/print_beste_trening_sist_uke.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding>
+            <marker date="1489575410746" expanded="true" signature="240:301" ph="SELECT * FRO... bruker" />
+            <marker date="1489575410746" expanded="true" signature="240:303" ph="SELECT b.bru... bruker" />
+            <marker date="1489575410746" expanded="true" signature="240:319" ph="SELECT b.bru... bruker" />
+            <marker date="1489575410746" expanded="true" signature="240:417" ph="SELECT * FRO... bruker" />
+            <marker date="1489575410746" expanded="true" signature="240:442" ph="SELECT b.bru... bruker" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/create_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        <state relative-caret-position="263">
+          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
           <folding>
-            <marker date="1489570123822" expanded="true" signature="239:332" ph="INSERT INTO bruker... " />
-            <marker date="1489570123822" expanded="true" signature="354:375" ph="INSERT INTO har_trent... " />
-            <marker date="1489570123822" expanded="true" signature="354:454" ph="INSERT INTO har_trent... " />
-            <marker date="1489570123822" expanded="true" signature="354:500" ph="INSERT INTO har_trent... " />
-            <marker date="1489570123822" expanded="true" signature="524:634" ph="INSERT INTO treningsøkt... " />
+            <marker date="1489576120502" expanded="true" signature="245:324" ph="INSERT INTO bruker... " />
+            <marker date="1489576120502" expanded="true" signature="352:373" ph="INSERT INTO har_trent... " />
+            <marker date="1489576120502" expanded="true" signature="352:439" ph="INSERT INTO har_trent... " />
+            <marker date="1489576120502" expanded="true" signature="352:472" ph="INSERT INTO har_trent... " />
+            <marker date="1489576120502" expanded="true" signature="502:596" ph="INSERT INTO treningsøkt... " />
+            <marker date="1489576120502" expanded="true" signature="627:722" ph="INSERT INTO innendørsøkt... " />
+            <marker date="1489576120502" expanded="true" signature="752:836" ph="INSERT INTO utendørsøkt... " />
+            <marker date="1489576120502" expanded="true" signature="861:981" ph="INSERT INTO utført... " />
+            <marker date="1489576120502" expanded="true" signature="1006:1121" ph="INSERT INTO øvelse... " />
+            <marker date="1489576120502" expanded="true" signature="1143:1287" ph="INSERT INTO utført... " />
           </folding>
         </state>
       </provider>
