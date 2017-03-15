@@ -26,6 +26,14 @@ TABLES['bruker'] = (
 "	  CONSTRAINT `brukernavn_PK` PRIMARY KEY (`brukernavn`)"
 "	) ENGINE=InnoDB")
 
+TABLES['treningsøkt'] = (
+"	CREATE TABLE `treningsøkt`("
+"	  `øktid`              int(10) NOT NULL,"
+"	  `tidspunkt`          date,"
+"	  `idrett`             varchar(20),"
+"	CONSTRAINT `treningsøkt_PK` PRIMARY KEY (`øktid`)"
+"	) ENGINE=InnoDB")
+
 TABLES['har_trent'] = (
 "	CREATE TABLE `har_trent`("
 "	  `brukernavn`     varchar(20) NOT NULL,"
@@ -40,14 +48,6 @@ TABLES['har_trent'] = (
 "	  CONSTRAINT `øktid_FK`      FOREIGN KEY (`øktid`)      REFERENCES `treningsøkt`(`øktid`)"
 "	                                                         ON UPDATE CASCADE"
 "	                                                         ON DELETE CASCADE"
-"	) ENGINE=InnoDB")
-
-TABLES['treningsøkt'] = (
-"	CREATE TABLE `treningsøkt`("
-"	  `øktid`              int(10) NOT NULL,"
-"	  `tidspunkt`          date,"
-"	  `idrett`             varchar(20),"
-"	CONSTRAINT `treningsøkt_PK` PRIMARY KEY (`øktid`)"
 "	) ENGINE=InnoDB")
 
 TABLES['innendørsøkt'] = (
@@ -94,6 +94,16 @@ TABLES['mal'] = (
 "	                                                           ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
+TABLES['øvelse'] = (
+"	CREATE TABLE `øvelse`("
+"	  `øvelse_navn`     varchar(20) NOT NULL,"
+"	  `beskrivelse`     varchar(200),"
+"	  `antall_reps`     int(10),"
+"	  `antall_sett`     int(10),"
+"	  `belastning`      varchar(30),"
+"	  CONSTRAINT `øvelse_PK` PRIMARY KEY(`øvelse_navn`)"
+"	) ENGINE=InnoDB")
+
 TABLES['utført'] = (
 "	CREATE TABLE `utført`("
 "	  `repetisjoner` int(10),"
@@ -109,16 +119,6 @@ TABLES['utført'] = (
 "	  CONSTRAINT `inneholder_FK2`    FOREIGN KEY(`øvelse_navn`) REFERENCES `øvelse`(`øvelse_navn`)"
 "	                                                         ON UPDATE CASCADE"
 "	                                                         ON DELETE CASCADE"
-"	) ENGINE=InnoDB")
-
-TABLES['øvelse'] = (
-"	CREATE TABLE `øvelse`("
-"	  `øvelse_navn`     varchar(20) NOT NULL,"
-"	  `beskrivelse`     varchar(200),"
-"	  `antall_reps`     int(10),"
-"	  `antall_sett`     int(10),"
-"	  `belastning`      varchar(30),"
-"	  CONSTRAINT `øvelse_PK` PRIMARY KEY(`øvelse_navn`)"
 "	) ENGINE=InnoDB")
 
 TABLES['mål'] = (
