@@ -1,16 +1,6 @@
 import mysql.connector
 from mysql.connector import errorcode
 
-config = {
-  'user': 'root',
-  'password': 'password',
-  'host': '127.0.0.1',
-  'database': 'test_schema',
-  'raise_on_warnings': True,
-}
-
-cnx = mysql.connector.connect(**config)
-cursor = cnx.cursor()
 
 ###
 # First fill tables into one dict entry each, with the key being the table name and value being the SQL.
@@ -179,10 +169,10 @@ TABLES['under_gruppe'] = (
 "	CREATE TABLE `under_gruppe`("
 "	  `kategori_navn1` varchar(20),"
 "	  `kategori_navn2` varchar(20),"
-"	  CONSTRAINT `under_gruppe_FK1` FOREIGN KEY(`kategori_navn1`) REFERENCES kategori(`kategori_navn`)"
+"	  CONSTRAINT `under_gruppe_FK1` FOREIGN KEY(`kategori_navn1`) REFERENCES `kategori`(`kategori_navn`)"
 "	                                                         ON UPDATE CASCADE"
 "	                                                         ON DELETE CASCADE,"
-"	  CONSTRAINT `under_gruppe_FK2` FOREIGN KEY(`kategori_navn2`) REFERENCES kategori(`kategori_navn`)"
+"	  CONSTRAINT `under_gruppe_FK2` FOREIGN KEY(`kategori_navn2`) REFERENCES `kategori`(`kategori_navn`)"
 "	                                                         ON UPDATE CASCADE"
 "	                                                         ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
@@ -191,40 +181,39 @@ TABLES['over_gruppe'] = (
 "	CREATE TABLE `over_gruppe`("
 "	  `kategori_navn1` varchar(20),"
 "	  `kategori_navn2` varchar(20),"
-"	  CONSTRAINT `over_gruppe_FK1` FOREIGN KEY(`kategori_navn1`) REFERENCES kategori(`kategori_navn`)"
+"	  CONSTRAINT `over_gruppe_FK1` FOREIGN KEY(`kategori_navn1`) REFERENCES `kategori`(`kategori_navn`)"
 "	                                                         ON UPDATE CASCADE"
 "	                                                         ON DELETE CASCADE,"
-"	  CONSTRAINT `over_gruppe_FK2` FOREIGN KEY(`kategori_navn2`) REFERENCES kategori(`kategori_navn`)"
+"	  CONSTRAINT `over_gruppe_FK2` FOREIGN KEY(`kategori_navn2`) REFERENCES `kategori`(`kategori_navn`)"
 "	                                                         ON UPDATE CASCADE"
 "	                                                         ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
 TABLES['medlem_av_kategori'] = (
-"	CREATE TABLE medlem_av_kategori("
+"	CREATE TABLE `medlem_av_kategori`("
 "	  `øvelse_navn`     varchar(20),"
 "	  `kategori_navn`   varchar(20),"
 "	  CONSTRAINT `medlem_av_kategori_FK1`     FOREIGN KEY(`øvelse_navn`) REFERENCES `øvelse`(`øvelse_navn`)"
 "	                                                         ON UPDATE CASCADE"
 "	                                                         ON DELETE CASCADE,"
-"	  CONSTRAINT `medlem_av_kategori_FK2`  FOREIGN KEY(`kategori_navn`) REFERENCES kategori(`kategori_navn`)"
+"	  CONSTRAINT `medlem_av_kategori_FK2`  FOREIGN KEY(`kategori_navn`) REFERENCES `kategori`(`kategori_navn`)"
 "	                                                         ON UPDATE CASCADE"
 "	                                                         ON DELETE CASCADE"
 "     ) ENGINE=InnoDB")
 
 
-
-for name, ddl in TABLES.items():
-    try:
-        print("Creating table {}: ".format(name), end='')
-        cursor.execute(ddl)
-    except mysql.connector.Error as err:
-        if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
-            print("already exists.")
+def execute_create_tables(cursor, cnx):
+    global TABLES
+    for name, ddl in TABLES.items():
+        try:
+            print("Creating table {}: ".format(name), end='')
+            cursor.execute(ddl)
+        except mysql.connector.Error as err:
+            if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
+                print("already exists.")
+            else:
+                print(err.msg)
         else:
-            print(err.msg)
-    else:
-        print("OK")
+            print("OK")
 
-cnx.commit()
-cursor.close()
-cnx.close()
+    cnx.commit()
