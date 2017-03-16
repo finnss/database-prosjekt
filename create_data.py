@@ -31,6 +31,17 @@ add_øvelse = (
     "VALUES (%s,%s,%s,%s,%s)"
 )
 
+add_utendørsøkt = (
+    "INSERT INTO utendørsøkt "
+    "(øktid, ventilasjon,antall_tilskuere) "
+    "VALUES (%s, %s, %s)"
+)
+
+add_innendørsøkt = (
+    "INSERT INTO innendørsøkt "
+    "(øktid, ventilasjon,antall_tilskuere) "
+    "VALUES (%s, %s, %s)"
+)
 
 simen = ("Simen Haga","mann","22")
 økt = ("1","01:00:00","vektløfting")
@@ -47,3 +58,4 @@ def execute_create_data(cursor, cnx):
     cursor.execute(add_utført,simen_har_utført)
 
     cnx.commit()
+

@@ -1,6 +1,7 @@
 import mysql.connector
 from create_data import add_user
 from create_tables import execute_create_tables
+from add_session import create_session
 
 config = {
     'user': 'root',
@@ -35,6 +36,7 @@ def main():
         gender = input('Vennligst oppgi kjønn(m/f/hva faen du vil): ')
         age = input('Vennligst oppgi alder: ')
         cursor.execute(add_user, (username, gender, age))
+        cnx.commit()
     else:
         username = input('Brukernavn: ')
     print('Logget inn.')
@@ -52,7 +54,7 @@ def main():
             help()
         elif query is 1:
             print('Valgt: Gå til oppretting av treningsøkter og øvelser\n')
-            # new_session()
+            create_session(cursor,username)
         elif query is 2:
             print('Valgt: Gå til oversikt over kjente treninger/øvelser\n')
             # view_exercises()
@@ -68,10 +70,9 @@ def main():
             break
         else:
             print('Ugylding input! Prøv igjen.')
-
+        cnx.commit()
 
 main()
 
-cnx.commit()
 cursor.close()
 cnx.close()
