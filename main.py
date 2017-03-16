@@ -1,8 +1,12 @@
 import mysql.connector
 from create_data import add_user, execute_create_data
+from create_data import add_user
+from create_data import add_mål
+from create_data import execute_create_data
 from create_tables import execute_create_tables
 from add_session import create_session
 from print_øvelser import print_øvelser
+from hent_maal import getMål
 
 config = {
     'user': 'root',
@@ -67,10 +71,10 @@ def main():
             print_øvelser(cursor)
         elif query is 3:
             print('Valgt: Gå til oppretting av mål\n')
-            # create_goals()
+
         elif query is 4:
             print('Valgt: Gå til oversikt over kjente mål\n')
-            # view_goals()
+            getMål(cursor)
         elif query is 5:
             print('Valgt: Avslutt\n')
             print('Takk for nå!')

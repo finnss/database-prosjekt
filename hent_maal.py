@@ -4,7 +4,7 @@ import time
 import datetime
 
 
-def getMål():
+def getMål(cursor):
 
     hent_mål = ("SELECT målid, tidsfrist, repetisjoner, sett, vekt, lengde, kommentar, brukernavn, øvelse_navn FROM mål")
 
