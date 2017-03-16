@@ -14,10 +14,9 @@ add_har_trent = (
 
 add_treningsøkt = (
     "INSERT INTO treningsøkt "
-    "(øktid,varighet,idrett)"
-    "VALUES (%s, %s, %s)"
+    "(varighet,idrett)"
+    "VALUES (%s, %s)"
 )
-
 
 add_utført = (
     "INSERT INTO utført"
@@ -44,15 +43,19 @@ add_innendørsøkt = (
 )
 
 simen = ("sim1haha","mann","22")
-økt = ("1","01:00:00","vektløfting")
-simen_har_trent_økt = (simen[0],økt[0],"2017-01-1",økt[1],"meh","meh")
+økt = ("01:00:00","vektløfting")
+def simen_har_trent_økt(øktId):
+    return (simen[0],øktId,"2017-01-1",økt[0],"meh","meh")
 øvelse = ("Markløft","Standard markløft")
-simen_har_utført = ("10","3","120",None,"gikk bra",økt[0],øvelse[0])
+def simen_har_utført(øktId):
+    print(øktId)
+    return ("10","3","120",None,"gikk bra",øktId,øvelse[0])
 
 
 def execute_create_data(cursor):
     cursor.execute(add_user, simen)
-    cursor.execute(add_treningsøkt,økt)
-    cursor.execute(add_har_trent,simen_har_trent_økt)
     cursor.execute(add_øvelse,øvelse)
-    cursor.execute(add_utført,simen_har_utført)
+    cursor.execute(add_treningsøkt,økt)
+    øktId = cursor.lastrowid
+    cursor.execute(add_utført,simen_har_utført(øktId))
+    cursor.execute(add_har_trent,simen_har_trent_økt(øktId))
