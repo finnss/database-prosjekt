@@ -11,60 +11,34 @@ config = {
 cnx = mysql.connector.connect(**config)
 cursor = cnx.cursor()
 
+
 def executeQueries():
     dateQueryStyrke = (
-    " SELECT h.dato, h.tidspunkt FROM bruker b,har_trent h, treningsøkt t,"
-    " utført u,øvelse ø"
-    " WHERE b.brukernavn = h.brukernavn"
+    " SELECT t.idrett,h.dato, ø.øvelse_navn"
+    " FROM   bruker b, har_trent h, treningsøkt t, utført u,øvelse ø"
+    " WHERE h.brukernavn = b.brukernavn "
     " AND h.øktid = t.øktid"
     " AND u.øktid = t.øktid"
     " AND u.øvelse_navn = ø.øvelse_navn"
     )
 
-    dateQueryKondis = (
-    " SELECT h.dato, h.tidspunkt FROM bruker b,har_trent h, treningsøkt t,"
-    " utført u,øvelse ø"
-    " WHERE b.brukernavn = h.brukernavn"
-    " AND h.øktid = t.øktid"
-    " AND u.øktid = t.øktid"
-    " AND u.øvelse_navn = ø.øvelse_navn"
-    ""
-    )
-
-
-    bestStyrkeQuery = (
-    " SELECT b.brukernavn, b.kjønn, b.alder FROM bruker b,har_trent h, treningsøkt t,"
-    " utført u,øvelse ø"
-    " WHERE b.brukernavn = h.brukernavn"
-    " AND h.øktid = t.øktid"
-    " AND u.øktid = t.øktid"
-    " AND u.øvelse_navn = ø.øvelse_navn"
-    )
-
-
-    bestKondisQuery = (
-    " SELECT b.brukernavn, b.kjønn, b.alder FROM bruker b,har_trent h, treningsøkt t,"
-    " utført u,øvelse ø"
-    " WHERE b.brukernavn = h.brukernavn"
-    " AND h.øktid = t.øktid"
-    " AND u.øktid = t.øktid"
-    " AND u.øvelse_navn = ø.øvelse_navn"
-    )
-
-
-def print(brukernavn):
+    return dateQueryStyrke
 
 
 
-cursor.execute(dateQueryStyrke)
+def print_øvelser():
+    cursor.execute(executeQueries())
 
-for (dato,tidspunkt) in cursor:
-  print("Beste styrketrening var på den {:s} klokken {:s}.".format(
-    dato,tidspunkt))
+    print("\nFølegnde treninger og øvelser er kjent:\n"
+          "+--------------------+--------------------+--------------------+\n"
+          "|       Dato         |       Idrett       |       Øvelse       +\n"
+          "+--------------------+--------------------+--------------------+")
+    for (idrett,dato,øvelse_navn) in cursor:
+        print("|{:20s}|{:20s}|{:20s}|".format(dato.strftime('%d/%m/%Y'),idrett, øvelse_navn))
 
+    print("+--------------------+--------------------+--------------------+\n")
 
-
-
+print_øvelser()
 cnx.commit()
 cursor.close()
 cnx.close()
