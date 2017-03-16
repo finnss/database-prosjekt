@@ -7,6 +7,8 @@ from create_tables import execute_create_tables
 from add_session import create_session
 from print_øvelser import print_øvelser
 from hent_maal import getMål
+from lag_maal import createMål
+
 
 config = {
     'user': 'root',
@@ -71,7 +73,7 @@ def main():
             print_øvelser(cursor)
         elif query is 3:
             print('Valgt: Gå til oppretting av mål\n')
-
+            createMål(cursor)
         elif query is 4:
             print('Valgt: Gå til oversikt over kjente mål\n')
             getMål(cursor)
