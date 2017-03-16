@@ -57,9 +57,3 @@ def create_exercise(cursor):
         data_utført = (repetisjoner, sett, vekt,kommentar)
         cursor.execute(add_øvelse, data_styrkeøvelse)
         cursor.execute(add_utført, data_utført)
-
-
-
-
-
-

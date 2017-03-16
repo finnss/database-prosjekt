@@ -47,7 +47,7 @@ def main():
     query = 0
     help()
 
-    while query is not 5:   
+    while query is not 5:
         print('Neste kommando (0 for hjelp):')
         query = int(input('> '))
         if query is 0:
