@@ -88,9 +88,6 @@ TABLES['øvelse'] = (
 "	CREATE TABLE `øvelse`("
 "	  `øvelse_navn`     varchar(20) NOT NULL,"
 "	  `beskrivelse`     varchar(200),"
-"	  `antall_reps`     int(10),"
-"	  `antall_sett`     int(10),"
-"	  `belastning`      varchar(30),"
 "	  CONSTRAINT `øvelse_PK` PRIMARY KEY(`øvelse_navn`)"
 "	) ENGINE=InnoDB")
 
