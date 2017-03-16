@@ -6,9 +6,12 @@ from mysql.connector import errorcode
 # First fill tables into one dict entry each, with the key being the table name and value being the SQL.
 ###
 
-TABLES = {}
+ENTITY_TABLES = {}
+RELATION_TABLES = {}
 
-TABLES['bruker'] = (
+# We use two dictionaries to ensure integrity by creating the tables that are referenced in foreign keys first
+
+ENTITY_TABLES['bruker'] = (
 "	CREATE TABLE `bruker`("
 "	  `brukernavn` varchar(20) NOT NULL,"
 "	  `kjønn`        varchar(6),"
@@ -16,7 +19,7 @@ TABLES['bruker'] = (
 "	  CONSTRAINT `brukernavn_PK` PRIMARY KEY (`brukernavn`)"
 "	) ENGINE=InnoDB")
 
-TABLES['treningsøkt'] = (
+ENTITY_TABLES['treningsøkt'] = (
 "	CREATE TABLE `treningsøkt`("
 "	  `øktid`              int(100) NOT NULL AUTO_INCREMENT,"
 "	  `varighet`           TIME,"
@@ -24,7 +27,23 @@ TABLES['treningsøkt'] = (
 "	CONSTRAINT `treningsøkt_PK` PRIMARY KEY (`øktid`)"
 "	) ENGINE=InnoDB")
 
-TABLES['har_trent'] = (
+ENTITY_TABLES['øvelse'] = (
+"	CREATE TABLE `øvelse`("
+"	  `øvelse_navn`     varchar(20) NOT NULL,"
+"	  `beskrivelse`     varchar(200),"
+"	  CONSTRAINT `øvelse_PK` PRIMARY KEY(`øvelse_navn`)"
+"	) ENGINE=InnoDB")
+
+ENTITY_TABLES['kategori'] = (
+"	CREATE TABLE `kategori`("
+"	  `kategori_navn` varchar(30) NOT NULL,"
+"	  CONSTRAINT `kategori_PK` PRIMARY KEY(`kategori_navn`)"
+"	) ENGINE=InnoDB")
+
+
+# Relation tables
+
+RELATION_TABLES['har_trent'] = (
 "	CREATE TABLE `har_trent`("
 "	  `brukernavn`     varchar(20) NOT NULL,"
 "	  `øktid`          int(10) NOT NULL,"
@@ -40,7 +59,7 @@ TABLES['har_trent'] = (
 "	                                                         ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['innendørsøkt'] = (
+RELATION_TABLES['innendørsøkt'] = (
 "	CREATE TABLE `innendørsøkt`("
 "	  `øktid`             int(10) NOT NULL,"
 "	  `ventilasjon`       varchar(30),"
@@ -50,7 +69,7 @@ TABLES['innendørsøkt'] = (
 "	                                                           ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['utendørsøkt'] = (
+RELATION_TABLES['utendørsøkt'] = (
 "	CREATE TABLE `utendørsøkt`("
 "	  `øktid`             int(10) NOT NULL,"
 "	  `Temperatur`        int(10),"
@@ -60,7 +79,7 @@ TABLES['utendørsøkt'] = (
 "	                                                           ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['målinger'] = (
+RELATION_TABLES['målinger'] = (
 "	CREATE TABLE `målinger`("
 "	  `tidspunkt`         int(10) NOT NULL,"
 "	  `øktid`             int(10) NOT NULL,"
@@ -74,7 +93,7 @@ TABLES['målinger'] = (
 "	                                                           ON DELETE NO ACTION"
 "	) ENGINE=InnoDB")
 
-TABLES['mal'] = (
+RELATION_TABLES['mal'] = (
 "	CREATE TABLE `mal`("
 "	  `mal_navn`         varchar(20) NOT NULL,"
 "	  `øktid`            int(10) NOT NULL,"
@@ -84,14 +103,7 @@ TABLES['mal'] = (
 "	                                                           ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['øvelse'] = (
-"	CREATE TABLE `øvelse`("
-"	  `øvelse_navn`     varchar(20) NOT NULL,"
-"	  `beskrivelse`     varchar(200),"
-"	  CONSTRAINT `øvelse_PK` PRIMARY KEY(`øvelse_navn`)"
-"	) ENGINE=InnoDB")
-
-TABLES['utført'] = (
+RELATION_TABLES['utført'] = (
 "	CREATE TABLE `utført`("
 "	  `repetisjoner` int(10),"
 "	  `sett`         int(10),"
@@ -108,7 +120,7 @@ TABLES['utført'] = (
 "	                                                         ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['mål'] = (
+RELATION_TABLES['mål'] = (
 "	CREATE TABLE `mål`("
 "	  `målid`        int(10) NOT NULL,"
 "	  `tidsfrist`    date,"
@@ -128,7 +140,7 @@ TABLES['mål'] = (
 "	                                                      ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['styrkeøvelse'] = (
+RELATION_TABLES['styrkeøvelse'] = (
 "	CREATE TABLE `styrkeøvelse`("
 "	  `øvelse_navn`    varchar(20) NOT NULL,"
 "	  CONSTRAINT `styrkeøvelse_FK` FOREIGN KEY(`øvelse_navn`) REFERENCES `øvelse`(`øvelse_navn`)"
@@ -136,7 +148,7 @@ TABLES['styrkeøvelse'] = (
 "	                                                      ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['kondisjonsøvelse'] = (
+RELATION_TABLES['kondisjonsøvelse'] = (
 "	CREATE TABLE `kondisjonsøvelse`("
 "	  `øvelse_navn`    varchar(20) NOT NULL,"
 "	  CONSTRAINT `kondisjonsøvelse_FK` FOREIGN KEY(`øvelse_navn`) REFERENCES `øvelse`(`øvelse_navn`)"
@@ -144,7 +156,7 @@ TABLES['kondisjonsøvelse'] = (
 "	                                                      ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['kan_erstatte'] = (
+RELATION_TABLES['kan_erstatte'] = (
 "	CREATE TABLE `kan_erstatte`("
 "	  `navn1`   varchar(20) NOT NULL,"
 "	  `navn2`   varchar(20) NOT NULL,"
@@ -156,13 +168,7 @@ TABLES['kan_erstatte'] = (
 "	                                                         ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['kategori'] = (
-"	CREATE TABLE `kategori`("
-"	  `kategori_navn` varchar(30) NOT NULL,"
-"	  CONSTRAINT `kategori_PK` PRIMARY KEY(`kategori_navn`)"
-"	) ENGINE=InnoDB")
-
-TABLES['under_gruppe'] = (
+RELATION_TABLES['under_gruppe'] = (
 "	CREATE TABLE `under_gruppe`("
 "	  `kategori_navn1` varchar(20),"
 "	  `kategori_navn2` varchar(20),"
@@ -174,7 +180,7 @@ TABLES['under_gruppe'] = (
 "	                                                         ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['over_gruppe'] = (
+RELATION_TABLES['over_gruppe'] = (
 "	CREATE TABLE `over_gruppe`("
 "	  `kategori_navn1` varchar(20),"
 "	  `kategori_navn2` varchar(20),"
@@ -186,7 +192,7 @@ TABLES['over_gruppe'] = (
 "	                                                         ON DELETE CASCADE"
 "	) ENGINE=InnoDB")
 
-TABLES['medlem_av_kategori'] = (
+RELATION_TABLES['medlem_av_kategori'] = (
 "	CREATE TABLE `medlem_av_kategori`("
 "	  `øvelse_navn`     varchar(20),"
 "	  `kategori_navn`   varchar(20),"
@@ -199,8 +205,7 @@ TABLES['medlem_av_kategori'] = (
 "     ) ENGINE=InnoDB")
 
 
-def execute_create_tables(cursor):
-    global TABLES
+def table_loop(cursor, TABLES):
     for name, ddl in TABLES.items():
         try:
             print("Creating table {}: ".format(name), end='')
@@ -212,3 +217,8 @@ def execute_create_tables(cursor):
                 print(err.msg)
         else:
             print("OK")
+
+def execute_create_tables(cursor):
+    global ENTITY_TABLES, RELATION_TABLES
+    table_loop(cursor, ENTITY_TABLES)
+    table_loop(cursor, RELATION_TABLES)
