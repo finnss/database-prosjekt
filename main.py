@@ -47,14 +47,14 @@ def main():
     query = 0
     help()
 
-    while query is not 5:
+    while query is not 5:   
         print('Neste kommando (0 for hjelp):')
         query = int(input('> '))
         if query is 0:
             help()
         elif query is 1:
             print('Valgt: Gå til oppretting av treningsøkter og øvelser\n')
-            new_session()
+            create_session(cursor,username)
         elif query is 2:
             print('Valgt: Gå til oversikt over kjente treninger/øvelser\n')
             # view_exercises()
