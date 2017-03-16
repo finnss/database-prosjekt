@@ -31,6 +31,8 @@ add_treningsøkt = (
 )
 
 
+
+
 add_utført = (
     "INSERT INTO utført"
     "(repetisjoner,sett,vekt,lengde,kommentar,øktid,øvelse_navn)"
