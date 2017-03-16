@@ -13,7 +13,7 @@ def createMål(cursor):
     print("Fyll inn data. skriv None om data ikke finnes for punkt")
 
     id= input("Mål-ID: ")
-    date_entry = input('Tidsfrist på YYYY-MM-DD format: ')
+    date_entry = input('Tidsfrist på YYYY-MM-D format: ')
     year, month, day = map(int, date_entry.split('-'))
     tid = datetime.date(year, month, day)
     rep = input("Repetisjoner: ")

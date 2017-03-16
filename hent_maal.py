@@ -13,7 +13,7 @@ def getMål(cursor):
     alle_maal = ""
 
     for ( målid, tidsfrist, repetisjoner, sett, vekt, lengde, kommentar, brukernavn, øvelse_navn) in cursor:
-        alle_maal += ("Mål med id: {}, tillhørte bruker: {}. Hadde øvelse: {}, med {} repetisjoner, {} set, med vekt {}, lengde {}, tidsfrist {}.\n Tilhørende kommentar: {} \n" ).format(
+        alle_maal += ("Mål med id: {}, tillhørte bruker: {}.\nØvelse: {}\nrepetisjoner: {}\nSet: {}\nVekt {}\nLengde {}\nTidsfrist {}\n Tilhørende kommentar: {} \n" ).format(
         målid, brukernavn, øvelse_navn, repetisjoner, sett, vekt, lengde, tidsfrist, kommentar)
 
     print (alle_maal)

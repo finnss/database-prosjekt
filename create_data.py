@@ -57,7 +57,7 @@ def simen_har_trent_økt(øktId):
 øvelse = ("Markløft","Standard markløft")
 def simen_har_utført(øktId):
     return ("10","3","120",None,"gikk bra",øktId,øvelse[0])
-simen_har_mål = ("10", datetime.datetime.today(), "10", "4", "125", None, "lol moro", "Simen Haga", "Markløft")
+simen_har_mål = ("10", "2017-01-1", "10", "4", "125", None, "lol moro", simen[0], "Markløft")
 
 
 
@@ -68,8 +68,6 @@ def execute_create_data(cursor):
     øktId = cursor.lastrowid
     cursor.execute(add_utført,simen_har_utført(øktId))
     cursor.execute(add_har_trent,simen_har_trent_økt(øktId))
-    print('Data lagt til OK')
     cursor.execute(add_mål, simen_har_mål)
-
-    cnx.commit()
+    print('Data lagt til OK')
 
