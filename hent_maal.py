@@ -1,8 +1,4 @@
 import mysql.connector
-from mysql.connector import errorcode
-import time
-import datetime
-
 
 def getMål(cursor):
 
@@ -17,7 +13,3 @@ def getMål(cursor):
         målid, brukernavn, øvelse_navn, repetisjoner, sett, vekt, lengde, tidsfrist, kommentar)
 
     print (alle_maal)
-
-
-
-

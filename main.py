@@ -9,7 +9,6 @@ from print_øvelser import print_øvelser
 from hent_maal import getMål
 from lag_maal import createMål
 
-
 config = {
     'user': 'root',
     'password': 'password',
@@ -29,7 +28,6 @@ def help():
     print('3\tGå til oppretting av mål')
     print('4\tGå til oversikt over kjente mål')
     print('5\tAvslutt')
-
 
 def main():
     print('Velkommen til treningsdatabasen!')

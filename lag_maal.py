@@ -1,5 +1,4 @@
 import mysql.connector
-from mysql.connector import errorcode
 import time
 import datetime
 
@@ -26,3 +25,4 @@ def createMål(cursor):
     mål =(id, tid, rep, sett, Weight, Length, comment, username,name)
 
     cursor.execute(add_mål, mål)
+    print("Mål Lagt til.\n")

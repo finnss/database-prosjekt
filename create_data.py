@@ -1,5 +1,4 @@
 import mysql.connector
-import datetime
 
 add_user = (
     " INSERT INTO bruker "
