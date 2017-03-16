@@ -1,5 +1,5 @@
 import mysql.connector
-from create_data import add_user
+from create_data import add_user, execute_create_data
 from create_tables import execute_create_tables
 from add_session import create_session
 
@@ -28,6 +28,15 @@ def main():
     print('Velkommen til treningsdatabasen!')
     print('Dette programmet antar en lokal MySQL-database med navn')
     print('"test_schema" og brukernavn/passord lik "root/password".')
+
+    if input('Opprette tabeller? y/n: ') == 'y':
+        execute_create_tables(cursor)
+        cnx.commit()
+
+    if input('Fyll med test-data? y/n: ') == 'y':
+        execute_create_data(cursor)
+        cnx.commit()
+
     newUser = input('Ny bruker? y/n ').lower() == 'y'
 
     if newUser:
@@ -40,9 +49,6 @@ def main():
     else:
         username = input('Brukernavn: ')
     print('Logget inn.')
-
-    if input('Opprette tabeller? y/n: ') == 'y':
-        execute_create_tables(cursor, cnx)
 
     query = 0
     help()
