@@ -2,6 +2,7 @@ import mysql.connector
 from create_data import add_user, execute_create_data
 from create_tables import execute_create_tables
 from add_session import create_session
+from print_øvelser import print_øvelser
 
 config = {
     'user': 'root',
@@ -63,7 +64,7 @@ def main():
             create_session(cursor,username)
         elif query is 2:
             print('Valgt: Gå til oversikt over kjente treninger/øvelser\n')
-            # view_exercises()
+            print_øvelser(cursor)
         elif query is 3:
             print('Valgt: Gå til oppretting av mål\n')
             # create_goals()
