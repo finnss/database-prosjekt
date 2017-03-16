@@ -198,7 +198,7 @@ TABLES['medlem_av_kategori'] = (
 "     ) ENGINE=InnoDB")
 
 
-def execute_create_tables(cursor, cnx):
+def execute_create_tables(cursor):
     global TABLES
     for name, ddl in TABLES.items():
         try:
@@ -211,5 +211,3 @@ def execute_create_tables(cursor, cnx):
                 print(err.msg)
         else:
             print("OK")
-
-    cnx.commit()
