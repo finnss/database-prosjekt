@@ -1,17 +1,5 @@
 import mysql.connector
 
-config = {
-  'user': 'root',
-  'password': 'password',
-  'host': '127.0.0.1',
-  'database': 'test_schema',
-  'raise_on_warnings': True,
-}
-
-cnx = mysql.connector.connect(**config)
-cursor = cnx.cursor()
-
-
 def executeQueries():
     dateQueryStyrke = (
     " SELECT t.idrett,h.dato, ø.øvelse_navn"
@@ -25,8 +13,7 @@ def executeQueries():
     return dateQueryStyrke
 
 
-
-def print_øvelser():
+def print_øvelser(cursor):
     cursor.execute(executeQueries())
 
     print("\nFølegnde treninger og øvelser er kjent:\n"
@@ -37,8 +24,3 @@ def print_øvelser():
         print("|{:20s}|{:20s}|{:20s}|".format(dato.strftime('%d/%m/%Y'),idrett, øvelse_navn))
 
     print("+--------------------+--------------------+--------------------+\n")
-
-print_øvelser()
-cnx.commit()
-cursor.close()
-cnx.close()
