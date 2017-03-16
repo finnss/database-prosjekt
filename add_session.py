@@ -4,7 +4,7 @@ import time
 from create_data import *
 
 def create_session(cursor, bruker):
-    date = input("Skriv inn dato(YYYY-MM-DD): ")
+    date = input("Skriv inn dato(YYYY-MM-D): ")
     time = input("Skriv inn tidspunkt(HH:MM:SS): ")
     env = input("Var økten innendørs eller utendørs (i/u)?: ")
     sport = input("Hva slags idrett?: ")
