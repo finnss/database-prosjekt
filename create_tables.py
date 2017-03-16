@@ -18,7 +18,7 @@ TABLES['bruker'] = (
 
 TABLES['treningsøkt'] = (
 "	CREATE TABLE `treningsøkt`("
-"	  `øktid`              int(10) NOT NULL,"
+"	  `øktid`              int(100) NOT NULL AUTO_INCREMENT,"
 "	  `varighet`           TIME,"
 "	  `idrett`             varchar(20),"
 "	CONSTRAINT `treningsøkt_PK` PRIMARY KEY (`øktid`)"
