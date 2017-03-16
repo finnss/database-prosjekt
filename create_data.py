@@ -1,16 +1,5 @@
 import mysql.connector
 
-config = {
-  'user': 'root',
-  'password': 'password',
-  'host': '127.0.0.1',
-  'database': 'test_schema',
-  'raise_on_warnings': True,
-}
-
-cnx = mysql.connector.connect(**config)
-cursor = cnx.cursor()
-
 add_user = (
     " INSERT INTO bruker "
     " (brukernavn,kjønn,alder) "
@@ -50,14 +39,11 @@ simen_har_trent_økt = (simen[0],økt[0],"2017-01-1",økt[1],"meh","meh")
 simen_har_utført = ("10","3","120",None,"gikk bra",økt[0],øvelse[0])
 
 
+def execute_create_data(cursor, cnx):
+    cursor.execute(add_user, simen)
+    cursor.execute(add_treningsøkt,økt)
+    cursor.execute(add_har_trent,simen_har_trent_økt)
+    cursor.execute(add_øvelse,øvelse)
+    cursor.execute(add_utført,simen_har_utført)
 
-cursor.execute(add_user, simen)
-cursor.execute(add_treningsøkt,økt)
-cursor.execute(add_har_trent,simen_har_trent_økt)
-cursor.execute(add_øvelse,øvelse)
-cursor.execute(add_utført,simen_har_utført)
-
-
-cnx.commit()
-cursor.close()
-cnx.close()
+    cnx.commit()
