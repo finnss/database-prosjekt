@@ -48,7 +48,6 @@ def simen_har_trent_økt(øktId):
     return (simen[0],øktId,"2017-01-1",økt[0],"meh","meh")
 øvelse = ("Markløft","Standard markløft")
 def simen_har_utført(øktId):
-    print(øktId)
     return ("10","3","120",None,"gikk bra",øktId,øvelse[0])
 
 
@@ -59,3 +58,4 @@ def execute_create_data(cursor):
     øktId = cursor.lastrowid
     cursor.execute(add_utført,simen_har_utført(øktId))
     cursor.execute(add_har_trent,simen_har_trent_økt(øktId))
+    print('Data lagt til OK')
